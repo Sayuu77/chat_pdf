@@ -244,10 +244,10 @@ with col2:
                 embeddings = OpenAIEmbeddings()
                 knowledge_base = FAISS.from_texts(chunks, embeddings)
                 
-                st.success(f"🎯 Documento procesado: {len(chunks)} fragmentos listos")
+                st.success(f"Documento procesado: {len(chunks)} fragmentos listos")
 
             # Interfaz de preguntas
-            st.markdown("### 💬 Haz tu Pregunta")
+            st.markdown("Haz tu Pregunta")
             
             # Usar pregunta sugerida si está disponible
             if 'suggested_question' in st.session_state:
@@ -271,7 +271,7 @@ with col2:
                 # Mostrar pregunta del usuario
                 st.markdown(f'<div class="user-question">{user_question}</div>', unsafe_allow_html=True)
                 
-                with st.spinner("🤔 Analizando documento..."):
+                with st.spinner("Analizando documento..."):
                     # Buscar documentos similares
                     docs = knowledge_base.similarity_search(user_question, k=3)
                     
@@ -296,7 +296,7 @@ with col2:
             
             # Mostrar historial de chat
             if st.session_state.chat_history:
-                st.markdown("### 📜 Historial de Conversación")
+                st.markdown("Historial de Conversación")
                 for chat in reversed(st.session_state.chat_history[-5:]):
                     with st.container():
                         st.markdown(f"""
@@ -308,7 +308,7 @@ with col2:
                         """, unsafe_allow_html=True)
                 
                 # Botón para limpiar historial
-                if st.button("🗑️ Limpiar Historial", use_container_width=True):
+                if st.button("Limpiar Historial", use_container_width=True):
                     st.session_state.chat_history = []
                     st.rerun()
                     
@@ -321,18 +321,9 @@ with col2:
         # Estado inicial
         st.markdown("""
         <div style="text-align: center; padding: 3rem; color: #d8b4fe;">
-            <h2>🚀 Comienza tu Análisis</h2>
+            <h2>Comienza tu Análisis</h2>
             <p>1. Ingresa tu API Key en la barra lateral</p>
             <p>2. Carga un documento PDF</p>
             <p>3. Haz preguntas sobre el contenido</p>
         </div>
         """, unsafe_allow_html=True)
-
-# Footer
-st.markdown("---")
-st.markdown("""
-<div style="text-align: center; color: #c084fc; padding: 2rem;">
-    <p>Desarrollado con ❤️ usando Streamlit, LangChain y OpenAI</p>
-    <p style="font-size: 0.8rem; color: #a855f7;">Sistema RAG - Generación Aumentada por Recuperación</p>
-</div>
-""", unsafe_allow_html=True)
