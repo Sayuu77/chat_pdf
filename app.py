@@ -126,13 +126,9 @@ st.markdown('<div class="subtitle">Generación Aumentada por Recuperación - Tu 
 # Sidebar mejorado
 with st.sidebar:
     st.markdown("""
-    <div style="background: linear-gradient(135deg, #a855f7, #c084fc); 
-                padding: 1.5rem; border-radius: 12px; color: white; margin-bottom: 2rem;">
-        <h2 style="margin: 0; text-align: center;">📚 Configuración</h2>
-    </div>
+        <h2 style="margin: 0; text-align: center;">Configuración</h2>
     """, unsafe_allow_html=True)
     
-    st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
     st.markdown("### 🔑 API Key")
     ke = st.text_input('Clave de OpenAI', type="password", label_visibility="collapsed")
     
@@ -141,7 +137,6 @@ with st.sidebar:
         st.success("✅ API Key configurada")
     else:
         st.warning("🔒 Ingresa tu API Key para comenzar")
-    st.markdown('</div>', unsafe_allow_html=True)
     
     st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
     st.markdown("### 📖 Información del Sistema")
