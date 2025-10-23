@@ -126,7 +126,7 @@ st.markdown('<div class="subtitle">Generación Aumentada por Recuperación - Tu 
 # Sidebar mejorado
 with st.sidebar:
     st.markdown("""
-        <h2 style="margin: 0; text-align: center;">Configuración</h2>
+        <h2 style="margin: 0">Configuración</h2>
     """, unsafe_allow_html=True)
     
     st.markdown("### 🔑 API Key")
@@ -138,15 +138,6 @@ with st.sidebar:
     else:
         st.warning("🔒 Ingresa tu API Key para comenzar")
     
-    st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
-    st.markdown("### 📖 Información del Sistema")
-    st.markdown(f"**Python:** {platform.python_version()}")
-    st.markdown("**Modelo:** GPT-4")
-    st.markdown("**Embeddings:** OpenAI")
-    st.markdown("**Vector Store:** FAISS")
-    st.markdown('</div>', unsafe_allow_html=True)
-    
-    st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
     st.markdown("### 💡 Preguntas Sugeridas")
     
     suggested_questions = [
